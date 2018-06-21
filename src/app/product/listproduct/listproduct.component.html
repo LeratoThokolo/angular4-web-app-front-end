@@ -1,0 +1,67 @@
+<div class="div_carousel">
+  <carousel>
+    <slide>
+      <img class="img-main-carousel" src="assets/images/carousel/2131_PickNPayClothing03.jpg" alt="First slide" style="display: block; width: 100%;">
+    </slide>
+    <slide>
+      <img class="img-main-carousel" src="assets/images/Eggs-in-basket.jpg" alt="Second slide" style="display: block; width: 100%;">
+    </slide>
+    <slide>
+      <img class="img-main-carousel" src="assets/images/carousel/pick_n_pay.jpg" alt="Third slide" style="display: block; width: 100%;">
+    </slide>
+    <slide>
+      <img class="img-main-carousel" src="assets/images/dacheese.png" alt="Third slide" style="display: block; width: 100%;">
+    </slide>
+  </carousel>
+</div>
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="card-body">
+
+        <h4 class="card-title">
+          Available Products
+        </h4>
+        <table class="table table-stripped table-condensed">
+          <thead>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products | paginate:{itemsPerPage: 5, currentPage: page}">
+              <td>
+                <img [src]="product.image" width="200px" height="200px" class="img-responsive" alt="No image available" />
+              </td>
+              <td style="font-weight: 800;color:#337ab7;">
+                {{product.name}}
+              </td>
+              <td style="color: red;font-weight: 800;font-size: 24px;">
+                {{product.unitPrice | currency:"R"}}
+              </td>
+              <td>
+                <button type="button" class="btn btn-primary" style="font-weight:800;" [routerLink]="['/home', product.productID]">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  Product Details
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="deleteProduct(product)" *ngIf="!deleteDisabled">
+                  <span class="glyphicon glyphicon-trash">
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-warning" (click)="updateProduct(product)" *ngIf="!updateDisabled">
+                  Update
+                </button>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls class="productsPagination" (pageChange)="page = $event" maxSize="5">
+        </pagination-controls>
+      </div>
+    </div>
+
+  </div>

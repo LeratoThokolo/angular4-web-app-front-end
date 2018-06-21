@@ -1,0 +1,16 @@
+.container{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    margin-top: 200px;
+    background-color:#337ab7;
+    color: white;
+    height: 200px;
+    border: solid blue 2px;
+    padding-top: 80px;
+}
+a{
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+}

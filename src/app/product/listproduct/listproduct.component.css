@@ -1,0 +1,32 @@
+.img-main-carousel{
+
+    max-height: 400px;
+}
+
+.div_carousel{
+
+    margin-bottom: 50px;
+    width: 100%;
+    margin-top: 0px;
+}
+
+.container{
+    width:80%;
+    margin: auto;
+}
+
+.panel-title{
+
+    font-weight: 800;
+    font-size: 24px;
+    text-align: center;
+}
+
+h4{
+    font-weight: 800;
+    text-align: center;
+    color: #337ab7;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+

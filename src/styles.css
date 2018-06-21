@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body > app-root > nav > div > ul > li > a{
+
+    color: rgb(170, 23, 23);
+    font-weight: 800;
+}
+
+.navbar-default .navbar-brand{
+
+    font-weight: 800;
+    color: midnightblue;
+    font-size: 36px;
+}
+
+
+body, html{
+
+    margin: 0;
+    padding: 0;
+}
+
+.productsPagination .ngx-pagination .current{
+    font-size: 26px;
+    background-color: white;
+    color: black;
+    font-weight: 800;
+    border-bottom: 2px solid red;
+}
+
+.productsPagination .ngx-pagination .pagination-previous{
+    font-weight: 800;
+}
+
+.productsPagination .ngx-pagination .pagination-next{
+    font-weight: 800;
+}
+
+

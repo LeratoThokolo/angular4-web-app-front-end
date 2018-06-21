@@ -1,0 +1,94 @@
+<div class="container">
+  <form #productForm="ngForm" (ngSubmit)="saveProduct()">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Add product to Database
+        </h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="form-group" [class.has-error]="nameControl.invalid && nameControl.touched" [class.has-success]="nameControl.valid">
+          <label for="name" class="control-label">Product Name</label>
+          <input id="name" type="text" required class="form-control" name="name" [(ngModel)]="product.name" #nameControl="ngModel">
+          <span class="help-block" *ngIf="nameControl.invalid && nameControl.touched">
+            Product name is required!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="priceControl.invalid && priceControl.touched" [class.has-success]="priceControl.valid">
+          <label for="unitPrice" class="control-label">Price</label>
+          <input id="unitPrice" type="number" required class="form-control" name="unitPrice" [(ngModel)]="product.unitPrice" #priceControl="ngModel">
+          <span class="help-block" *ngIf="priceControl.invalid && priceControl.touched">
+            Price is required!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="quantityControl.invalid && quantityControl.touched" [class.has-success]="quantityControl.valid">
+          <label for="quantity" class="control-label">Quantity</label>
+          <input id="quantity" type="number" required class="form-control" name="quantity" [(ngModel)]="product.quantity" #quantityControl="ngModel">
+          <span class="help-block" *ngIf="quantityControl.invalid && quantityControl.touched">
+            Quantity is required!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="minimumQuantityControl.invalid && minimumQuantityControl.touched" [class.has-success]="minimumQuantityControl.valid">
+          <label for="minimumQuantity" class="control-label">Minimum Quantity</label>
+          <input id="minimumQuantity" type="number" required class="form-control" name="minimumQuantity" [(ngModel)]="product.minimumQuantity" #minimumQuantityControl="ngModel">
+          <span class="help-block" *ngIf="minimumQuantityControl.invalid && minimumQuantityControl.touched">
+            Minimum quantity is required!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="badgeQuantityControl.invalid && badgeQuantityControl.touched" [class.has-success]="badgeQuantityControl.valid">
+          <label for="badgeQuantity" class="control-label">Badge Quantity</label>
+          <input id="badgeQuantity" type="number" required class="form-control" name="badgeQuantity" [(ngModel)]="product.badgeQuantity" #badgeQuantityControl="ngModel">
+          <span class="help-block" *ngIf="badgeQuantityControl.invalid && badgeQuantityControl.touched">
+            Badge quantity is required!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="imageControl.invalid && imageControl.touched" [class.has-success]="imageControl.valid">
+          <label for="image" class="control-label">Image Path</label>
+          <input id="image" type="text" required class="form-control" name="image" [(ngModel)]="product.image" #imageControl="ngModel">
+          <span class="help-block" *ngIf="imageControl.invalid && imageControl.touched">
+            Provide image path!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="categoryControl.invalid && categoryControl.touched" [class.has-success]="categoryControl.valid">
+          <label for="category" class="control-label">Category</label>
+          <select id="category" required class="form-control" name="category" [(ngModel)]="product.category" #categoryControl="ngModel">
+            <option [ngValue]="null" style="font: weight 800;">Select a category</option>
+            <option *ngFor="let category of categories" [ngValue]="category" style="font-weight:800;background-color:#337ab7;color:whitesmoke;">
+                {{category.name}}
+            </option>
+          </select>
+
+          <span class="help-block" *ngIf="categoryControl.invalid && categoryControl.touched">
+            Select category!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="supplierControl.invalid && supplierControl.touched" [class.has-success]="supplierControl.valid">
+          <label for="supplier" class="control-label">Supplier</label>
+          <select id="supplier" required class="form-control" name="supplier" [(ngModel)]="product.supplier" #supplierControl="ngModel">
+            <option [ngValue]="null" style="font: weight 800;">Select a supplier</option>
+            <option *ngFor="let supplier of suppliers" [ngValue]="supplier" style="font-weight:800;background-color:#337ab7;color:whitesmoke;">
+                {{supplier.fullNames}}
+            </option>
+          </select>
+
+          <span class="help-block" *ngIf="supplierControl.invalid && supplierControl.touched">
+            Select supplier!
+          </span>
+        </div>
+
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Save Product</button>
+        <button type="reset" class="btn btn-primary">Reset Form</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,113 @@
+<div class="container">
+  <form #customerForm="ngForm" (ngSubmit)="saveCustomer()">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Register for online shopping
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group" [class.has-error]="fullNamescontrol.invalid && fullNamescontrol.touched" [class.has-success]="fullNamescontrol.valid">
+          <label for="fullNames" class="control-label">Full Names</label>
+          <input id="fullNames" type="text" required class="form-control" name="fullNames" [(ngModel)]="customer.fullNames" #fullNamescontrol="ngModel">
+          <span class="help-block" *ngIf="fullNamescontrol.invalid && fullNamescontrol.touched">
+            Full names are required!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="userNamecontrol.invalid && userNamecontrol.touched" [class.has-success]="userNamecontrol.valid">
+          <label for="userName" class="control-label">User Name</label>
+          <input id="userName" type="text" required class="form-control" name="userName" [(ngModel)]="customer.userName" #userNamecontrol="ngModel">
+          <span class="help-block" *ngIf="userNamecontrol.invalid && userNamecontrol.touched">
+            User name is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="emailcontrol.invalid && emailcontrol.touched" [class.has-success]="emailcontrol.valid">
+          <label for="email" class="control-label">Email</label>
+          <input id="email" type="email" [email]="customer.email !==''" required class="form-control" name="email" [(ngModel)]="customer.email" #emailcontrol="ngModel">
+          <span class="help-block" *ngIf="emailcontrol.errors?.required && emailcontrol.touched">
+            Email is required!!
+          </span>
+          <span class="help-block" *ngIf="emailcontrol.errors?.email && emailcontrol.touched">
+            Email is invalid!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="cellnocontrol.invalid && cellnocontrol.touched" [class.has-success]="cellnocontrol.valid">
+          <label for="cellNo" class="control-label">Cell Number</label>
+          <input id="cellNo" type="text" required class="form-control" name="cellNo" [(ngModel)]="customer.cellNo" #cellnocontrol="ngModel">
+          <span class="help-block" *ngIf="cellnocontrol.invalid && cellnocontrol.touched">
+            Cell number is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="passwordcontrol.invalid && passwordcontrol.touched" [class.has-success]="passwordcontrol.valid">
+          <label for="password" class="control-label">Password</label>
+          <input id="password" type="password" required class="form-control" name="password" [(ngModel)]="customer.password" #passwordcontrol="ngModel">
+          <span class="help-block" *ngIf="passwordcontrol.errors?.required && passwordcontrol.touched">
+            Password is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="confirmpasswordcontrol.invalid && confirmpasswordcontrol.touched" [class.has-success]="confirmpasswordcontrol.valid">
+          <label for="confirmPassword" class="control-label">Confirm Password</label>
+          <input id="confirmPassword" type="password" appConfirmValidator="password" required class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword"
+            #confirmpasswordcontrol="ngModel">
+          <span class="help-block" *ngIf="confirmpasswordcontrol.errors?.required && confirmpasswordcontrol.touched">
+            Confirm Password is required!!
+          </span>
+          <span class="help-block" *ngIf="confirmpasswordcontrol.errors?.notEqual && confirmpasswordcontrol.touched">
+              Password and confirm password do not match!!
+            </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="housenocontrol.invalid && housenocontrol.touched" [class.has-success]="housenocontrol.valid">
+          <label for="houseNo" class="control-label">House Number</label>
+          <input id="houseNo" type="text" required class="form-control" name="houseNo" [(ngModel)]="customer.houseNo" #housenocontrol="ngModel">
+          <span class="help-block" *ngIf="housenocontrol.invalid && housenocontrol.touched">
+            House number is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="streetnamecontrol.invalid && streetnamecontrol.touched" [class.has-success]="streetnamecontrol.valid">
+          <label for="streetName" class="control-label">Street Name</label>
+          <input id="streetName" type="text" required class="form-control" name="streetName" [(ngModel)]="customer.streetName" #streetnamecontrol="ngModel">
+          <span class="help-block" *ngIf="streetnamecontrol.invalid && streetnamecontrol.touched">
+            Street name is required!!
+          </span>
+        </div>
+
+
+        <div class="form-group" [class.has-error]="surburbcontrol.invalid && surburbcontrol.touched" [class.has-success]="surburbcontrol.valid">
+          <label for="surburb" class="control-label">Area</label>
+          <input id="surburb" type="text" required class="form-control" name="surburb" [(ngModel)]="customer.surburb" #surburbcontrol="ngModel">
+          <span class="help-block" *ngIf="surburbcontrol.invalid && surburbcontrol.touched">
+            Area is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="towncontrol.invalid && towncontrol.touched" [class.has-success]="towncontrol.valid">
+          <label for="town" class="control-label">Town</label>
+          <input id="town" type="text" required class="form-control" name="town" [(ngModel)]="customer.town" #towncontrol="ngModel">
+          <span class="help-block" *ngIf="towncontrol.invalid && towncontrol.touched">
+            Town is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="pccontrol.invalid && pccontrol.touched" [class.has-success]="pccontrol.valid">
+          <label for="postalCode" class="control-label">Postal Code</label>
+          <input id="postalCode" type="text" required class="form-control" name="postalCode" [(ngModel)]="customer.postalCode" #pccontrol="ngModel">
+          <span class="help-block" *ngIf="pccontrol.invalid && pccontrol.touched">
+            Postal Code is required!!
+          </span>
+        </div>
+
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="customerForm.invalid">Save</button>
+        <button type="reset" class="btn btn-primary">Reset Form</button>
+      </div>
+    </div>
+  </form>
+</div>

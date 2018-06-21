@@ -1,0 +1,70 @@
+<div class="container">
+
+    <h3 style="font-weight: 800;color: green">
+        Order details for {{customer.fullNames}}
+    </h3>
+    <ul style="font-weight: 800;color:green;">
+        <li>
+            Order date: {{currentDate | date:"EEE dd MMMM yyyy"}}
+            <br>
+        </li>
+        <li>
+            Order time: {{currentTime | date:"HH:mm:ss"}}
+            <br>
+        </li>
+        <li>
+            Order#: {{numberOrder}}
+        </li>
+    </ul>
+
+
+
+    <hr>
+    <table id="cart" class="table table-hover table-condensed" style="margin-top: 30px;">
+        <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cartItem of cartItems">
+                <td data-th="Product">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h4 class="nomargin">{{cartItem.product.name}}</h4>
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">{{cartItem.product.unitPrice | currency:"R"}}</td>
+                <td data-th="Quantity">
+                    {{cartItem.count}}
+                </td>
+                <td data-th="Subtotal" class="text-center">{{cartItem.count * cartItem.product.unitPrice | currency:"R"}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center">
+                    <strong>{{cartGrandTotal | currency:"R"}}</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong style="font-weight: 800;">Total due:</strong>
+                    <strong style="color:red;font-size: 20px;">{{cartGrandTotal | currency:"R"}}</strong>
+                </td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td>
+                    <a (click)="createOrder()" class="btn btn-success btn-block">Checkout
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

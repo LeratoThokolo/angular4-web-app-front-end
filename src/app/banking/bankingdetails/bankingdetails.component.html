@@ -1,0 +1,62 @@
+<div class="container">
+  <form (ngSubmit)="saveBankingDetails()">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Enter banking details
+        </h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="form-group" [class.has-error]="bankCategory.invalid && bankCategory.touched" [class.has-success]="bankCategory.valid">
+          <label for="bank" class="control-label">Bank</label>
+          <select id="bank" required class="form-control" name="bank" [(ngModel)]="bankDetail.bank" #bankCategory="ngModel">
+            <option [ngValue]="null" style="font: weight 800;">Select a bank</option>
+            <option *ngFor="let bank of banks" [ngValue]="bank" style="font-weight:800;background-color:#337ab7;color:whitesmoke;">
+              {{bank.bankName}}
+            </option>
+          </select>
+
+          <span class="help-block" *ngIf="bankCategory.invalid && bankCategory.touched">
+            Select bank!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="accountNumberControl.invalid && accountNumberControl.touched" [class.has-success]="accountNumberControl.valid">
+          <label for="accountNumber" class="control-label">Account #</label>
+          <input id="accountNumber" type="number" required class="form-control" name="accountNumber" [(ngModel)]="bankDetail.accountNumber"
+            #accountNumberControl="ngModel">
+          <span class="help-block" *ngIf="accountNumberControl.invalid && accountNumberControl.touched">
+            Account # is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="pinControl.invalid && pinControl.touched" [class.has-success]="pinControl.valid">
+          <label for="pin" class="control-label">Pin</label>
+          <input id="pin" type="password" required class="form-control" name="pin" [(ngModel)]="bankDetail.pin" #pinControl="ngModel" maxlength="6">
+          <span class="help-block" *ngIf="pinControl.invalid && pinControl.touched">
+            Pin is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="customerControl.invalid && customerControl.touched" [class.has-success]="customerControl.valid">
+          <label for="customer" class="control-label">Customer</label>
+          <select id="customer" required class="form-control" name="customer" [(ngModel)]="bankDetail.customer" #customerControl="ngModel">
+            <option [ngValue]="customer" selected="selected" style="font-weight:800;background-color:#337ab7;color:whitesmoke;">
+              {{customer.fullNames}}
+            </option>
+          </select>
+
+          <span class="help-block" *ngIf="customerControl.invalid && customerControl.touched">
+            Select customer!!
+          </span>
+        </div>
+
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary">Save Banking Details</button>
+        <button type="reset" class="btn btn-primary">Reset Form</button>
+      </div>
+    </div>
+  </form>
+</div>

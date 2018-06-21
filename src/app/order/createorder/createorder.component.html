@@ -1,0 +1,65 @@
+<div class="container">
+    <form #orderForm="ngForm" (ngSubmit)="createOrder()">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Confirm Order
+          </h3>
+        </div>
+        <div class="panel-body">
+  
+          <div class="form-group" [class.has-error]="orderNumberControl.invalid && orderNumberControl.touched" [class.has-success]="orderNumberControl.valid">
+            <label for="orderNumber" class="control-label">Order#</label>
+            <input id="orderNumber" type="number" required class="form-control" name="orderNumber" [(ngModel)]="order.orderNumber" #orderNumberControl="ngModel">
+            <span class="help-block" *ngIf="orderNumberControl.invalid && orderNumberControl.touched">
+              Order number is required!
+            </span>
+          </div>
+  
+          <div class="form-group" [class.has-error]="deliveredControl.invalid && deliveredControl.touched" [class.has-success]="deliveredControl.valid">
+            <label for="delivered" class="control-label">Delivered</label>
+            <input id="delivered" type="text" required class="form-control" name="delivered" [(ngModel)]="order.delivered" #deliveredControl="ngModel">
+            <span class="help-block" *ngIf="deliveredControl.invalid && deliveredControl.touched">
+              Delivered is required!
+            </span>
+          </div>
+  
+          <div class="form-group" [class.has-error]="amountControl.invalid && amountControl.touched" [class.has-success]="amountControl.valid">
+            <label for="amount" class="control-label">Amount</label>
+            <input id="amount" type="number" required class="form-control" name="amount" [(ngModel)]="order.amount" #amountControl="ngModel" value="cartGrandTotal">
+            <span class="help-block" *ngIf="amountControl.invalid && amountControl.touched">
+              Amount is required!
+            </span>
+          </div>
+  
+          <div class="form-group" [class.has-error]="dateCreatedControl.invalid && dateCreatedControl.touched" [class.has-success]="dateCreatedControl.valid">
+            <label for="dateCreated" class="control-label">Order date</label>
+            <input id="dateCreated" type="date" required class="form-control" name="dateCreated" [(ngModel)]="currentDate" #dateCreatedControl="ngModel">
+            <span class="help-block" *ngIf="dateCreatedControl.invalid && dateCreatedControl.touched">
+              Date is required!
+            </span>
+          </div>
+
+          <div class="form-group" [class.has-error]="customerControl.invalid && customerControl.touched" [class.has-success]="customerControl.valid">
+              <label for="customer" class="control-label">Customer</label>
+              <select id="customer" required class="form-control" name="customer" [(ngModel)]="order.customer" #customerControl="ngModel">
+                <option [ngValue]="customer" selected="selected" style="font-weight:800;background-color:#337ab7;color:whitesmoke;">
+                  {{customer.fullNames}}
+                </option>
+              </select>
+    
+              <span class="help-block" *ngIf="customerControl.invalid && customerControl.touched">
+                Select customer!!
+              </span>
+            </div>
+  
+        </div>
+        <div class="panel-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">Confirm Order</button>
+          <button type="reset" class="btn btn-primary">Reset Form</button>
+        </div>
+      </div>
+    </form>
+
+    Order {{order | json}}
+  </div>

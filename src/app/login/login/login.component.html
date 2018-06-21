@@ -1,0 +1,38 @@
+<div class="container">
+  <form #loginForm="ngForm" (ngSubmit)="login()">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Login to shop online
+        </h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="form-group" [class.has-error]="userNamecontrol.invalid && userNamecontrol.touched" [class.has-success]="userNamecontrol.valid">
+          <label for="userName" class="control-label">User Name</label>
+          <input id="userName" type="text" required class="form-control" name="userName" [(ngModel)]="model.userName" #userNamecontrol="ngModel">
+          <span class="help-block" *ngIf="userNamecontrol.invalid && userNamecontrol.touched">
+            User name is required!!
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="passwordcontrol.invalid && passwordcontrol.touched" [class.has-success]="passwordcontrol.valid">
+          <label for="password" class="control-label">Password</label>
+          <input id="password" type="password" required class="form-control" name="password" [(ngModel)]="model.password" #passwordcontrol="ngModel">
+          <span class="help-block" *ngIf="passwordcontrol.errors?.required && passwordcontrol.touched">
+            Password is required!!
+          </span>
+        </div>
+
+        <div *ngIf="model.error" class="alert alert-error">{{model.error}}
+          <br>
+          <a (click)="recoverPassword()">Forgot password?</a>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+        <button type="reset" class="btn btn-primary">Clear form</button>
+      </div>
+    </div>
+  </form>
+</div>

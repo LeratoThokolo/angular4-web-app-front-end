@@ -1,0 +1,33 @@
+#id_container{
+    margin-top: 30px;
+}
+
+#myNavbar{
+
+    background-color:#337ab7;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+
+    color: whitesmoke;
+    background-color: #337ab7;
+}
+
+.navbar-inverse .navbar-brand{
+    font-weight: 800;
+    font-size: 36px;
+    color:whitesmoke;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+
+    font-weight: 800;
+    color:whitesmoke;
+}
+
+.navbar-inverse{
+    background-color:#337ab7;
+    border:#337ab7;
+    border-radius: 0;
+    width: 100% important;
+}

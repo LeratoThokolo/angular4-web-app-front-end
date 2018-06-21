@@ -1,0 +1,21 @@
+<div class="container">
+
+  <table class="table table-striped table-condensed table-bordered">
+    <thead>
+      <th>Full Names</th>
+      <th>Username</th>
+      <th>Surburb</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{customer.fullNames}}</td>
+        <td>{{customer.userName}}</td>
+        <td>{{customer.surburb}}</td>
+        <td>
+           <button class="btn btn-warning" (click)="updateCustomer(customer)">Update Your Proifle</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

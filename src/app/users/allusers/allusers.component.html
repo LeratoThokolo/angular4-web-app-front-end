@@ -1,0 +1,84 @@
+<h1>
+  <u>All Application Users</u>
+</h1>
+
+<div class="container">
+  <h3>
+    Customers
+  </h3>
+  <table class="table table-striped table-condensed table-bordered">
+    <thead>
+      <th>Full Names</th>
+      <th>Username</th>
+      <th>Surburb</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.fullNames}}</td>
+        <td>{{customer.userName}}</td>
+        <td>{{customer.surburb}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteCustomer(customer)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+<hr>
+
+<div class="container">
+  <h3>
+    Suppliers
+  </h3>
+  <table class="table table-striped table-condensed table-bordered">
+    <thead>
+      <th>Full Names</th>
+      <th>Username</th>
+      <th>Surburb</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let supplier of suppliers">
+        <td>{{supplier.fullNames}}</td>
+        <td>{{supplier.userName}}</td>
+        <td>{{supplier.surburb}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteSupplier(supplier)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+<hr>
+
+<div class="container">
+  <h3>
+    Drivers
+  </h3>
+  <table class="table table-striped table-condensed table-bordered">
+    <thead>
+      <th>Full Names</th>
+      <th>Username</th>
+      <th>Surburb</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pnpDriver of pnpDrivers">
+        <td>{{pnpDriver.fullNames}}</td>
+        <td>{{pnpDriver.userName}}</td>
+        <td>{{pnpDriver.surburb}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deletePnPDriver(pnpDriver)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+<hr>

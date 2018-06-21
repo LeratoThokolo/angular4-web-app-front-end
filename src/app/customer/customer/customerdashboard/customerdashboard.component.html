@@ -1,0 +1,52 @@
+<div>
+    <a routerLink="home">
+        <img src="assets/images/untitled-2.jpg" style="width:200px;height:100px;" class="img-responsive">
+    </a>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="Active">
+                    <a routerLink="list-category">
+                        Categories
+                    </a>
+                </li>
+                <li routerLinkActive="Active" *ngIf="loggedIn">
+                    <a routerLink="customer-profile">
+                        Profile
+                    </a>
+                </li>
+                <li routerLinkActive="Active">
+                    <a routerLink="cart-items">
+                        Cart({{cartSize}})
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li routerLinkActive="Active" *ngIf="!hideShow">
+                    <a routerLink="register" >
+                        Register
+                    </a>
+                </li>
+                <li routerLinkActive="Active" *ngIf="!hideShow">
+                    <a routerLink="user-login">
+                        Login
+                    </a>
+                </li>
+                <li routerLinkActive="Active" *ngIf="hideShow">
+                    <a routerLink="user-login">
+                        Logout {{_loginService.getUserName()}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

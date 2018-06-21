@@ -1,0 +1,25 @@
+<div class="container">
+  <form #productQuantityForm="ngForm" (ngSubmit)="updateProductQuantity()">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Updating {{product.name}} quantity in badge
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group" [class.has-error]="badgeQuantityControl.invalid && badgeQuantityControl.touched" [class.has-success]="badgeQuantityControl.valid">
+          <label for="badgeQuantity" class="control-label">Badge Quantity</label>
+          <input id="badgeQuantity" type="text" required class="form-control" name="badgeQuantity" [(ngModel)]="product.badgeQuantity" #badgeQuantityControl="ngModel">
+          <span class="help-block" *ngIf="badgeQuantityControl.invalid && badgeQuantityControl.touched">
+            Badge quantity is required!!
+          </span>
+        </div>
+
+        
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary" [disabled]="productQuantityForm.invalid">Update Quantity</button>
+      </div>
+    </div>
+  </form>
+</div>

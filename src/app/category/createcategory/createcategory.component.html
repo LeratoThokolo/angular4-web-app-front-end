@@ -1,0 +1,29 @@
+<div class="container">
+  <form #categoryForm="ngForm" (ngSubmit)="saveCategory()">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Add Category to database
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group" [class.has-error]="categoryNameControl.invalid && categoryNameControl.touched" [class.has-success]="categoryNameControl.valid">
+          <label for="name" class="control-label">Category Name</label>
+          <input id="name" type="text" required class="form-control" name="name" [(ngModel)]="category.name" #categoryNameControl="ngModel">
+          <span class="help-block" *ngIf="categoryNameControl.invalid && categoryNameControl.touched">
+            Category name is required!
+          </span>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button class="btn btn-primary" type="submit" [disabled]="categoryNameControl.invalid">
+          Save Category
+        </button>
+        <button class="btn btn-primary" type="reset">
+          Reset Form
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
